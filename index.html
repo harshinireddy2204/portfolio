@@ -1,455 +1,741 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harshini Reddy | Portfolio</title>
-  <meta name="description" content="Harshini Reddy | Data Analyst, AI Builder, Systems Thinker." />
-  <meta property="og:title" content="Harshini Reddy | Portfolio" />
-  <meta property="og:description" content="Data engineering, agentic AI, and real-world deployment." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0a0e; --bg2: #0d0d12;
-      --card: rgba(255,255,255,0.02); --card-h: rgba(255,255,255,0.04);
-      --bdr: rgba(255,255,255,0.06);
-      --t: #fff; --td: rgba(255,255,255,0.55); --tm: rgba(255,255,255,0.35); --tg: rgba(255,255,255,0.4);
-      --a: #f59e0b; --ag: rgba(245,158,11,0.15);
-      --fd: 'Playfair Display', Georgia, serif;
-      --fb: 'DM Sans', -apple-system, sans-serif;
-      --red: #ef4444; --blue: #3b82f6; --green: #10b981; --purple: #8b5cf6; --cyan: #06b6d4; --pink: #ec4899;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--t); font-family: var(--fb); line-height: 1.6; overflow-x: hidden; }
-    ::selection { background: rgba(245,158,11,0.3); }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: rgba(245,158,11,0.3); border-radius: 3px; }
-    a { color: inherit; text-decoration: none; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshini Reddy | Data and AI portfolio</title>
+<meta name="description" content="Type what you are hiring for and my projects re-rank against it. Agentic AI, ML and data pipelines, with live demos.">
+<meta name="author" content="Harshini Reddy">
+<meta name="theme-color" content="#0f1120">
+<link rel="canonical" href="https://harshinireddy2204.github.io/portfolio/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1120'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23ff8f70'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Harshini Reddy">
+<meta property="og:url" content="https://harshinireddy2204.github.io/portfolio/">
+<meta property="og:title" content="Harshini Reddy | Data and AI portfolio">
+<meta property="og:description" content="Type what you are hiring for and my projects re-rank against it. Agentic AI, ML and data pipelines, with live demos.">
+<meta property="og:image" content="https://harshinireddy2204.github.io/portfolio/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harshini Reddy. I build data and AI systems that ship.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Harshini Reddy | Data and AI portfolio">
+<meta name="twitter:description" content="Type what you are hiring for and my projects re-rank against it. Agentic AI, ML and data pipelines, with live demos.">
+<meta name="twitter:image" content="https://harshinireddy2204.github.io/portfolio/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: a search instrument. Left, a sticky query console with a live scoring trace.
+   Right, one ranked list of work that physically re-sorts as the query changes. */
+:root {
+  --bg: #0f1120;
+  --panel: #171a2e;
+  --line: #2a2f4a;
+  --fg: #ecebe4;
+  --muted: #9a9fb8;
+  --accent: #ff8f70;   /* interaction, query, matched terms */
+  --signal: #6fe3c4;   /* relevance scores only */
+  --mark: rgba(255, 143, 112, 0.2);
+  --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+[hidden] { display: none !important; }
 
-    /* NAV */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: all 0.4s; border-bottom: 1px solid transparent; }
-    .nav.scrolled { background: rgba(10,10,14,0.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom-color: var(--bdr); }
-    .nav-in { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { font-family: var(--fd); font-size: 22px; font-weight: 700; }
-    .logo b { color: var(--a); }
-    .nav-lk { display: flex; gap: 28px; }
-    .nav-lk a { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: var(--tm); transition: color 0.3s; padding: 4px 0; border-bottom: 2px solid transparent; }
-    .nav-lk a:hover, .nav-lk a.active { color: var(--a); border-bottom-color: var(--a); }
-    .ham { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
-    .mob-menu { display: none; flex-direction: column; gap: 4px; padding: 8px 24px 20px; background: rgba(10,10,14,0.96); border-bottom: 1px solid var(--bdr); }
-    .mob-menu a { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--tm); padding: 10px 0; }
-    .mob-menu a:hover { color: var(--a); }
-    @media (max-width: 768px) { .nav-lk { display: none; } .ham { display: block; } .mob-menu.open { display: flex; } }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3, p, ol, ul, dl, dd { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
 
-    /* FADE */
-    .fi { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .fi.vis { opacity: 1; transform: translateY(0); }
-    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}.d7{transition-delay:.7s}.d8{transition-delay:.8s}.d9{transition-delay:.9s}.d10{transition-delay:1s}
+.wrap { max-width: 1180px; margin-inline: auto; padding-inline: 20px; padding-block: 20px 72px; display: flex; flex-direction: column; gap: 56px; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
 
-    /* HERO */
-    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 30% 20%, rgba(245,158,11,0.07) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(59,130,246,0.05) 0%, transparent 50%), var(--bg); }
-    .hero::before { content: ''; position: absolute; inset: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-    .hero-c { text-align: center; max-width: 800px; padding: 0 24px; position: relative; z-index: 1; }
-    .avatar { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 32px; border: 3px solid rgba(245,158,11,0.25); box-shadow: 0 0 60px var(--ag); overflow: hidden; }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .hero h1 { font-family: var(--fd); font-size: clamp(38px,6vw,68px); font-weight: 700; line-height: 1.08; margin-bottom: 14px; }
-    .hero-sub { font-size: clamp(13px,1.8vw,17px); color: var(--tm); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; }
-    .hero-desc { font-size: clamp(14px,1.6vw,16px); color: var(--tg); max-width: 580px; margin: 0 auto 36px; line-height: 1.75; }
-    .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .bp { font-family: var(--fb); font-size: 13px; font-weight: 600; padding: 13px 30px; border-radius: 6px; border: none; background: var(--a); color: var(--bg); letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
-    .bp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--ag); }
-    .bo { font-family: var(--fb); font-size: 13px; font-weight: 600; padding: 13px 30px; border-radius: 6px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); letter-spacing: 1px; text-transform: uppercase; transition: border-color 0.3s; display: inline-block; }
-    .bo:hover { border-color: var(--a); }
-    .scroll-h { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.4; }
-    .scroll-h span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-    .scroll-h div { width: 1px; height: 32px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); }
+/* top bar */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.top .who { font-family: var(--mono); font-size: 14px; }
+.top .who b { color: var(--accent); font-weight: 500; }
+.top nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; font-size: 14px; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--fg); }
+.switch { font-family: var(--mono); font-size: 13px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; color: var(--fg); }
+.switch:hover { border-color: var(--accent); }
 
-    /* SECTIONS */
-    .sec { padding: 100px 24px; }
-    .sec-in { max-width: 1000px; margin: 0 auto; }
-    .sec-t { font-family: var(--fd); font-size: clamp(28px,4vw,44px); font-weight: 700; margin-bottom: 6px; }
-    .sec-s { font-size: 15px; color: var(--tm); margin-bottom: 56px; max-width: 520px; }
+/* hero */
+.hero { display: flex; flex-direction: column; gap: 20px; margin-top: -16px; }
+.for { align-self: flex-start; display: flex; flex-direction: column; gap: 4px; padding: 12px 16px; background: var(--panel); border: 1px solid var(--accent); border-radius: 4px; max-width: 62ch; }
+.for strong { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.for span { font-size: 15px; }
+.for a { color: var(--accent); }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(44px, 8vw, 92px); line-height: 0.98; letter-spacing: -0.01em; text-wrap: balance; max-width: 14ch; }
+h1 em { color: var(--accent); }
+.lede { font-size: clamp(17px, 2vw, 20px); max-width: 60ch; color: var(--fg); }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 22px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.facts li::before { content: "/ "; color: var(--line); }
 
-    /* HW GRID */
-    .hw-w { margin-bottom: 64px; padding: 32px; border-radius: 16px; background: rgba(245,158,11,0.025); border: 1px solid rgba(245,158,11,0.1); }
-    .hw-lab { display: inline-block; font-size: 11px; font-weight: 600; padding: 4px 14px; border-radius: 4px; background: rgba(245,158,11,0.14); color: var(--a); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
-    .hw-g { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .hw-c { padding: 24px; border-radius: 12px; background: var(--card); border: 1px solid var(--bdr); transition: border-color 0.3s, transform 0.3s; }
-    .hw-c:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-3px); }
-    .hw-c .ico { font-size: 32px; margin-bottom: 12px; }
-    .hw-c h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-    .hw-c p { font-size: 13px; color: var(--td); line-height: 1.65; margin-bottom: 14px; }
-    .tg { display: flex; flex-wrap: wrap; gap: 6px; }
-    .ts { font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; background: rgba(245,158,11,0.08); color: rgba(245,158,11,0.8); letter-spacing: 0.4px; }
+/* bench */
+.bench { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 48px; align-items: start; }
+.console { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: flex; flex-direction: column; gap: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 20px; }
+.console label { font-family: var(--display); font-size: 26px; line-height: 1.1; }
+.field { display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+.field .prompt { font-family: var(--mono); color: var(--accent); }
+.field input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; font-family: var(--mono); font-size: 16px; caret-color: var(--accent); }
+.field input::placeholder { color: var(--muted); opacity: 0.8; }
+.field button { background: none; border: 0; cursor: pointer; font-family: var(--mono); font-size: 12px; color: var(--muted); padding: 4px; }
+.field button:hover { color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { font-family: var(--mono); font-size: 13px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; color: var(--fg); }
+.chips button:hover { border-color: var(--accent); color: var(--accent); }
+.chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.trace { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 14px; font-family: var(--mono); font-size: 12px; padding-top: 16px; border-top: 1px dashed var(--line); font-variant-numeric: tabular-nums; }
+.trace dt { color: var(--muted); }
+.trace dd { overflow-wrap: anywhere; }
+.trace .plus { color: var(--muted); }
+.hint { font-size: 13px; color: var(--muted); }
 
-    /* TIMELINE */
-    .tl { margin-bottom: 44px; padding: 28px 32px; border-radius: 12px; background: rgba(255,255,255,0.015); border-left: 3px solid; }
-    .tl-m { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
-    .tl-y { font-size: 11px; font-weight: 600; padding: 4px 14px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1.5px; }
-    .tl-t { font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; }
-    .tl h3 { font-family: var(--fd); font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-    .tl .sub { font-size: 13px; color: var(--tm); font-style: italic; margin-bottom: 16px; }
-    .tl ul { list-style: none; }
-    .tl li { font-size: 14px; color: var(--td); line-height: 1.65; padding: 5px 0 5px 18px; position: relative; }
-    .tl li::before { content: ''; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; opacity: 0.5; }
+/* results */
+.results { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.rhead h2 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.1; }
+.doc { display: grid; grid-template-columns: 40px minmax(0, 1fr) 104px; grid-template-areas: "rank body score"; gap: 4px 16px; padding-block: 24px; border-bottom: 1px solid var(--line); will-change: transform; }
+.rank { grid-area: rank; font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 5px; font-variant-numeric: tabular-nums; }
+.hit .rank { color: var(--accent); }
+.body { grid-area: body; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.doc h3 { font-family: var(--display); font-weight: 400; font-size: clamp(24px, 3vw, 31px); line-height: 1.12; text-wrap: balance; }
+.line { max-width: 64ch; }
+mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 2px; }
+.metrics { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+.metrics div { display: flex; flex-direction: column; }
+.metrics dt { order: 2; font-size: 12px; color: var(--muted); }
+.metrics dd { font-family: var(--mono); font-size: 20px; font-variant-numeric: tabular-nums; }
+.match { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.match i { font-style: normal; color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 1px 6px; }
+.match i.syn { color: var(--muted); border-color: var(--line); }
+details summary { cursor: pointer; font-family: var(--mono); font-size: 13px; color: var(--muted); width: fit-content; }
+details summary:hover { color: var(--fg); }
+details[open] summary { margin-bottom: 10px; }
+.pts { display: flex; flex-direction: column; gap: 6px; max-width: 64ch; font-size: 15px; }
+.pts li { padding-left: 16px; position: relative; }
+.pts li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 1px; background: var(--muted); }
+.stack { margin-top: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--mono); font-size: 13px; }
+.links a { color: var(--accent); text-underline-offset: 3px; }
+.score { grid-area: score; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; padding-top: 4px; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.score .num { font-size: 20px; color: var(--signal); }
+.score .cap { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.score .bar { width: 100%; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.score .bar b { display: block; height: 100%; width: 0; background: var(--signal); transition: width 0.45s ease; }
+.idle .score, .idle .match { display: none; }
+.idle .doc { grid-template-columns: 40px minmax(0, 1fr); grid-template-areas: "rank body"; }
+.miss { opacity: 0.55; padding-block: 12px; }
+.miss .line, .miss .metrics, .miss details, .miss .links, .miss .match, .miss .score .bar, .miss .score .cap { display: none; }
+.miss h3 { font-size: 20px; }
+.miss .score .num { font-size: 13px; color: var(--muted); }
+.sep { padding-block: 22px 6px; }
 
-    /* SKILLS */
-    .sk-g { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .sk-c { padding: 24px; border-radius: 12px; background: var(--card); border: 1px solid var(--bdr); }
-    .sk-c h4 { font-size: 11px; font-weight: 600; color: var(--a); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
-    .sk-ch { display: flex; flex-wrap: wrap; gap: 8px; }
-    .sk-ch span { font-size: 12px; font-weight: 500; padding: 5px 13px; border-radius: 6px; background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.6); border: 1px solid var(--bdr); }
+/* experience: fixed order, never ranked */
+.exp { display: flex; flex-direction: column; gap: 4px; }
+.exp > h2 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 4vw, 40px); line-height: 1.1; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.role { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 8px 32px; padding-block: 28px; border-bottom: 1px solid var(--line); }
+.role .body { grid-area: auto; }
+.role h3 { font-family: var(--display); font-weight: 400; font-size: clamp(24px, 3vw, 31px); line-height: 1.12; text-wrap: balance; }
+.role .when { padding-top: 8px; }
+.exp > .hint { padding-top: 14px; }
+.skills { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0 32px; }
+.skills dt { padding-block: 16px; border-bottom: 1px solid var(--line); }
+.skills dd { display: flex; flex-wrap: wrap; gap: 6px 8px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.skills dd > * { font-family: var(--mono); font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; background: none; color: var(--fg); }
+.skills button { cursor: pointer; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.skills button:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* PROJECTS */
-    .pj-g { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .pj { padding: 28px; border-radius: 14px; background: var(--card); border: 1px solid var(--bdr); display: flex; flex-direction: column; transition: all 0.35s ease; }
-    .pj:hover { background: var(--card-h); transform: translateY(-4px); }
-    .pj-d { width: 8px; height: 8px; border-radius: 50%; margin-bottom: 16px; }
-    .pj h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .pj p { font-size: 13px; color: var(--tg); line-height: 1.65; margin-bottom: 16px; flex: 1; }
-    .pj-tg { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-    .pj-tg span { font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 4px; letter-spacing: 0.4px; }
-    .pj-lk { display: flex; gap: 14px; }
-    .pj-lk a { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.2s; }
-    .pj-lk a:hover { opacity: 0.7; }
+/* plain view */
+.plain .console, .plain .score, .plain .match, .plain .rank { display: none; }
+.plain .bench { grid-template-columns: minmax(0, 1fr); }
+.plain .doc { grid-template-columns: minmax(0, 1fr); grid-template-areas: "body"; }
 
-    /* EDU */
-    .edu { padding: 28px 32px; border-radius: 12px; margin-bottom: 20px; background: rgba(255,255,255,0.015); border-left: 3px solid; }
-    .edu h3 { font-family: var(--fd); font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-    .edu .deg { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 10px; }
-    .edu-m { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .edu-m span { font-size: 13px; color: var(--tm); }
-    .gpa { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+/* background + contact */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+.cols section { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.cols h2 { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+.cols li { display: flex; flex-direction: column; font-size: 15px; }
+.cols ul { display: flex; flex-direction: column; gap: 12px; }
+.cols small { font-size: 13px; color: var(--muted); }
+.contact { display: flex; flex-direction: column; gap: 16px; padding-top: 32px; border-top: 1px solid var(--line); }
+.contact h2 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 5vw, 56px); line-height: 1.05; text-wrap: balance; max-width: 18ch; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-family: var(--mono); font-size: clamp(15px, 2.4vw, 20px); }
+.mail span { user-select: all; overflow-wrap: anywhere; }
+.mail button { font-family: var(--mono); font-size: 13px; background: var(--accent); color: var(--bg); border: 0; border-radius: 999px; padding: 7px 16px; cursor: pointer; }
+.contact nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--mono); font-size: 14px; }
+.contact nav a { color: var(--muted); }
 
-    /* CONTACT */
-    .cta { text-align: center; border-top: 1px solid var(--bdr); }
-    .cta p { font-size: 15px; color: var(--tm); max-width: 540px; margin: 0 auto 36px; line-height: 1.75; }
-    .foot { font-size: 12px; color: rgba(255,255,255,0.15); letter-spacing: 1px; margin-top: 48px; }
-  </style>
+@media (max-width: 900px) {
+  .wrap { gap: 40px; }
+  .bench { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .role { grid-template-columns: minmax(0, 1fr); }
+  .skills { grid-template-columns: minmax(0, 1fr); }
+  .skills dt { border-bottom: 0; padding-block: 16px 0; }
+  .role .when { padding-top: 0; }
+  .console { position: static; }
+  .doc { grid-template-columns: 28px minmax(0, 1fr); grid-template-areas: "rank score" "rank body"; }
+  .score { flex-direction: row; align-items: center; gap: 10px; padding-top: 0; }
+  .score .bar { flex: 1; max-width: 160px; order: 2; }
+  .score .cap { order: 3; }
+}
+@media (prefers-reduced-motion: reduce) { .score .bar b { transition: none; } }
+</style>
 </head>
 <body>
+<div class="wrap" id="app">
+  <header class="top">
+    <div class="who">harshini reddy <b>/</b> lowell, ma</div>
+    <nav aria-label="Links">
+      <a href="https://github.com/harshinireddy2204">GitHub</a>
+      <a href="https://www.linkedin.com/in/harshini-reddy22/">LinkedIn</a>
+      <a href="#contact">Contact</a>
+      <button class="switch" id="viewToggle" type="button" aria-pressed="false">Plain view</button>
+    </nav>
+  </header>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-in">
-    <div class="logo">H<b>.</b></div>
-    <div class="nav-lk">
-      <a href="#home">Home</a><a href="#journey">Journey</a><a href="#skills">Skills</a>
-      <a href="#projects">Projects</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+  <section class="hero">
+    <div class="for" id="forBox" hidden>
+      <strong id="forName"></strong>
+      <span id="forNote"></span>
     </div>
-    <button class="ham" id="hamBtn" aria-label="Menu">☰</button>
-  </div>
-  <div class="mob-menu" id="mobMenu">
-    <a href="#home">Home</a><a href="#journey">Journey</a><a href="#skills">Skills</a>
-    <a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
-  </div>
-</nav>
+    <h1>I build data and AI systems that <em>ship.</em></h1>
+    <p class="lede">This portfolio is a small search engine over my projects. Tell it what your team needs and it ranks what I have built against that, with the scoring shown.</p>
+    <ul class="facts">
+      <li>Assistant Business and Data Analyst, UMass Lowell</li>
+      <li>4 years in data and AI</li>
+      <li>Kaggle silver medal, top 5%</li>
+      <li>M.S. Engineering Management, 3.92 GPA</li>
+          </ul>
+  </section>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-c">
-    <div class="fi d2"><div class="avatar"><img src="assets/profile.png" alt="Harshini Reddy" /></div></div>
-    <h1 class="fi d3">Harshini Reddy</h1>
-    <p class="hero-sub fi d4">From IoT Circuits to AI Systems</p>
-    <p class="hero-desc fi d5">I build things that turn messy data into clear decisions. Whether it's automating enrollment pipelines, deploying multi-agent healthcare systems, or wiring up IoT sensors for urban safety, I care about the full loop: real data, real stakeholders, real impact.</p>
-    <div class="btns fi d6">
-      <a href="https://github.com/harshinireddy2204" target="_blank" class="bp">GitHub</a>
-      <a href="https://www.linkedin.com/in/harshini-reddy22/" target="_blank" class="bo">LinkedIn</a>
-    </div>
-  </div>
-  <div class="scroll-h fi d8"><span>Scroll</span><div></div></div>
-</section>
-
-<!-- JOURNEY -->
-<section class="sec" id="journey">
-  <div class="sec-in">
-    <h2 class="sec-t fi">The Journey</h2>
-    <p class="sec-s fi d1">Every role taught me something different. Here's the path so far.</p>
-
-    <!-- UMass Lowell (most recent) -->
-    <div class="tl fi" style="border-left-color:var(--blue);">
-      <div class="tl-m">
-        <span class="tl-y" style="background:rgba(59,130,246,0.12);color:var(--blue);">2024 to Present</span>
-        <span class="tl-t" style="border:1px solid rgba(59,130,246,0.3);color:rgba(59,130,246,0.8);">AI + Analytics</span>
+  <main class="bench">
+    <aside class="console" aria-label="Query console">
+      <label for="q">What are you hiring for?</label>
+      <div class="field">
+        <span class="prompt" aria-hidden="true">&gt;</span>
+        <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="try: agentic AI for healthcare">
+        <button id="clear" type="button" hidden>clear</button>
       </div>
-      <h3>Business &amp; Data Analyst, UMass Lowell</h3>
-      <p class="sub">Where I learned to build for stakeholders, not just for code</p>
+      <div class="chips" id="chips" role="group" aria-label="Example queries"></div>
+      <dl class="trace" id="trace" aria-live="polite"></dl>
+      <p class="hint">Ranking runs in your browser. No model call, no tracking. Press / to jump to the query.</p>
+    </aside>
+
+    <section class="results" aria-label="Projects and competitions, ranked">
+      <div class="rhead">
+        <h2 id="rtitle">Projects and competitions</h2>
+        <span class="label" id="rcount"></span>
+      </div>
+      <ol id="list" class="idle"></ol>
+    </section>
+  </main>
+
+  <section class="exp" aria-label="Experience">
+    <h2>Experience</h2>
+    <div id="roles"></div>
+  </section>
+
+  <section class="exp" aria-label="Skills">
+    <h2>Skills</h2>
+    <p class="hint">Underlined skills are backed by a project. Select one to see the evidence ranked.</p>
+    <dl class="skills" id="skills"></dl>
+  </section>
+
+  <div class="cols">
+    <section>
+      <h2>Education</h2>
       <ul>
-        <li>Reduced admissions data discrepancies by 32% across Salesforce, CAS, PeopleSoft &amp; OAC.</li>
-        <li>Implemented a RAG framework integrating enrollment datasets, improving AI-driven forecasting by 40%.</li>
-        <li>Automated analytics workflows with Python &amp; SQL, reclaiming roughly 15 hours per week.</li>
-        <li>Converted 10,000+ survey responses into actionable insights using NLP sentiment analysis (VADER).</li>
-        <li>Built the ABTS population monitoring dashboard in OAC for real-time tracking of 1,000+ eligible students.</li>
+        <li>M.S. Industrial / Engineering Management<small>UMass Lowell, Jan 2024 to Dec 2025, GPA 3.92 / 4.0</small></li>
+        <li>B.E. Electronics and Communication Engineering<small>JNTU Hyderabad, 2018 to 2022</small></li>
       </ul>
-    </div>
-
-    <!-- Société Générale -->
-    <div class="tl fi" style="border-left-color:var(--red);">
-      <div class="tl-m">
-        <span class="tl-y" style="background:rgba(239,68,68,0.12);color:var(--red);">2022 to 2023</span>
-        <span class="tl-t" style="border:1px solid rgba(239,68,68,0.3);color:rgba(239,68,68,0.8);">Enterprise Data</span>
-      </div>
-      <h3>Data Analyst, Société Générale, Bengaluru</h3>
-      <p class="sub">Where I learned what "production-grade" actually means</p>
+    </section>
+    <section>
+      <h2>Certifications</h2>
       <ul>
-        <li>Maintained 99.99% data integrity across 50+ SQL Server environments.</li>
-        <li>Built SSIS validation and transformation logic, reducing reporting discrepancies by 25%.</li>
-        <li>Co-built a .NET API for real-time BI dashboard access, saving 50 hours per week of manual extraction.</li>
-        <li>Coordinated with Paris-based engineering teams to align API architecture with enterprise standards.</li>
+        <li>Lean Six Sigma Green Belt<small>Project Management Institute, Jun 2024</small></li>
+        <li>Supply Chain Foundations: The Essentials<small>CSCMP, Feb 2025</small></li>
       </ul>
-    </div>
-
-    <!-- Bachelor's Hardware (oldest) -->
-    <div class="hw-w fi d2">
-      <div class="hw-lab">2018 to 2022 · The Hardware Years</div>
-      <div class="hw-g">
-        <div class="hw-c fi d2">
-          <div class="ico">☕</div>
-          <h4>Smart Coffee Dispenser</h4>
-          <p>RFID-authenticated coffee machine built with Raspberry Pi Pico. Users scan their card to pick from 4 coffee types. The system reads the card via SPI-based RC522, authenticates, and controls relay-driven dispensing. All MicroPython.</p>
-          <div class="tg"><span class="ts">Raspberry Pi Pico</span><span class="ts">MicroPython</span><span class="ts">RFID RC522</span><span class="ts">SPI</span></div>
-        </div>
-        <div class="hw-c fi d3">
-          <div class="ico">♻️</div>
-          <h4>Smart Waste &amp; Manhole Monitoring</h4>
-          <p>IoT system tackling two urban safety problems in Indian cities. Ultrasonic sensors track waste bin fill levels in real time, while gas sensors (methane, H₂S), water level detectors, and tilt sensors monitor manhole status. Open and toxic manholes cause hundreds of sanitary worker deaths every year. Automated GSM/Wi-Fi alerts reach municipal authorities before workers approach hazardous sites.</p>
-          <div class="tg"><span class="ts">Ultrasonic Sensors</span><span class="ts">Gas Sensors</span><span class="ts">IoT</span><span class="ts">GSM Module</span><span class="ts">Microcontroller</span></div>
-        </div>
-        <div class="hw-c fi d4">
-          <div class="ico">🔥</div>
-          <h4>Fire Fighting Robot</h4>
-          <p>24-hour hackathon project, built with a team of 4. Autonomous robot with IR-based fire detection, obstacle avoidance using ultrasonic ranging, and DC motor driven movement. Won runner-up.</p>
-          <div class="tg"><span class="ts">IR Sensors</span><span class="ts">DC Motors</span><span class="ts">Arduino</span><span class="ts">Hackathon 🏆</span></div>
-        </div>
-      </div>
-    </div>
+    </section>
   </div>
-</section>
 
-<!-- SKILLS -->
-<section class="sec" id="skills" style="background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);">
-  <div class="sec-in">
-    <h2 class="sec-t fi">Skills &amp; Tools</h2>
-    <p class="sec-s fi d1">What I reach for when building.</p>
-    <div class="sk-g">
-      <div class="sk-c fi d1"><h4>Programming &amp; Data</h4><div class="sk-ch"><span>Python</span><span>SQL</span><span>C</span><span>MicroPython</span><span>.NET</span><span>API Development</span></div></div>
-      <div class="sk-c fi d2"><h4>AI &amp; Machine Learning</h4><div class="sk-ch"><span>RAG</span><span>LangGraph</span><span>CrewAI</span><span>NLP</span><span>VADER</span><span>NLTK</span><span>scikit-learn</span><span>pandas</span><span>LLM APIs</span><span>Prompt Engineering</span><span>Predictive Modeling</span><span>Sentiment Analysis</span></div></div>
-      <div class="sk-c fi d3"><h4>Data Engineering &amp; Modeling</h4><div class="sk-ch"><span>Data Pipelines</span><span>SSIS</span><span>dbt</span><span>ETL</span><span>Data Modeling</span><span>Statistical Modeling</span><span>Regression Analysis</span><span>Data Analysis</span></div></div>
-      <div class="sk-c fi d4"><h4>Visualization &amp; BI</h4><div class="sk-ch"><span>Tableau</span><span>Streamlit</span><span>Power BI</span><span>Oracle Analytics Cloud</span><span>Plotly</span></div></div>
-      <div class="sk-c fi d5"><h4>Databases &amp; Platforms</h4><div class="sk-ch"><span>SQL Server</span><span>Salesforce</span><span>PeopleSoft</span><span>ChromaDB</span><span>ServiceNow</span></div></div>
-      <div class="sk-c fi d6"><h4>Business &amp; Strategy</h4><div class="sk-ch"><span>Business Analytics</span><span>Product Management</span><span>Project Management</span><span>Strategic Planning</span><span>Supply Chain Management</span><span>Lean Six Sigma</span><span>Operations Management</span><span>Stakeholder Management</span></div></div>
-      <div class="sk-c fi d7"><h4>Process &amp; Automation</h4><div class="sk-ch"><span>RPA</span><span>Business Process Improvement</span><span>Operational Optimization</span><span>Building Automation Systems</span></div></div>
-      <div class="sk-c fi d8"><h4>Hardware &amp; IoT</h4><div class="sk-ch"><span>Raspberry Pi</span><span>RFID</span><span>Sensors</span><span>Arduino</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="sec" id="projects">
-  <div class="sec-in">
-    <h2 class="sec-t fi">Featured Projects</h2>
-    <p class="sec-s fi d1">Things I built because I wanted to understand how they work.</p>
-    <div class="pj-g">
-
-      <!-- Healthcare AI -->
-      <div class="pj fi d1" onmouseenter="this.style.borderColor='rgba(16,185,129,0.35)'" onmouseleave="this.style.borderColor='var(--bdr)'">
-        <div class="pj-d" style="background:var(--green);box-shadow:0 0 12px rgba(16,185,129,0.4);"></div>
-        <h3>Healthcare AI Multi-Agent System</h3>
-        <p>Production-style platform automating prior authorization, care gap detection &amp; patient risk triage. 5 LangGraph + CrewAI agents, FastAPI backend (8 endpoints), 8-tab Streamlit dashboard, RAG over 63 clinical guidelines with cross-encoder reranking, and a 93-node clinical knowledge graph.</p>
-        <div class="pj-tg">
-          <span style="background:rgba(16,185,129,0.08);color:rgba(16,185,129,0.8);border:1px solid rgba(16,185,129,0.15);">LangGraph</span>
-          <span style="background:rgba(16,185,129,0.08);color:rgba(16,185,129,0.8);border:1px solid rgba(16,185,129,0.15);">CrewAI</span>
-          <span style="background:rgba(16,185,129,0.08);color:rgba(16,185,129,0.8);border:1px solid rgba(16,185,129,0.15);">FastAPI</span>
-          <span style="background:rgba(16,185,129,0.08);color:rgba(16,185,129,0.8);border:1px solid rgba(16,185,129,0.15);">RAG</span>
-          <span style="background:rgba(16,185,129,0.08);color:rgba(16,185,129,0.8);border:1px solid rgba(16,185,129,0.15);">FHIR R4</span>
-        </div>
-        <div class="pj-lk">
-          <a href="https://healthcare-ai-agents.streamlit.app/" target="_blank" style="color:var(--green);">Live Demo →</a>
-        </div>
-      </div>
-
-      <!-- Geopolitical -->
-      <div class="pj fi d2" onmouseenter="this.style.borderColor='rgba(139,92,246,0.35)'" onmouseleave="this.style.borderColor='var(--bdr)'">
-        <div class="pj-d" style="background:var(--purple);box-shadow:0 0 12px rgba(139,92,246,0.4);"></div>
-        <h3>Geopolitical Risk &amp; Portfolio Dashboard</h3>
-        <p>Live news feeds + 10 years of market data to assess portfolio downside under real-world crisis scenarios. Regime-switching tail risk framework using VaR, CVaR, tail dependence &amp; Clayton copula modeling. Separate crash models for calm vs. crisis markets.</p>
-        <div class="pj-tg">
-          <span style="background:rgba(139,92,246,0.08);color:rgba(139,92,246,0.8);border:1px solid rgba(139,92,246,0.15);">Copula Models</span>
-          <span style="background:rgba(139,92,246,0.08);color:rgba(139,92,246,0.8);border:1px solid rgba(139,92,246,0.15);">GARCH</span>
-          <span style="background:rgba(139,92,246,0.08);color:rgba(139,92,246,0.8);border:1px solid rgba(139,92,246,0.15);">NewsAPI</span>
-          <span style="background:rgba(139,92,246,0.08);color:rgba(139,92,246,0.8);border:1px solid rgba(139,92,246,0.15);">Streamlit</span>
-        </div>
-        <div class="pj-lk">
-          <a href="https://github.com/harshinireddy2204/geopolitical-portfolio-risk" target="_blank" style="color:var(--purple);">GitHub →</a>
-          <a href="https://geopolitical-portfolio-risk-lawjxduk5cndpicq8egczk.streamlit.app/" target="_blank" style="color:var(--td);">Live Demo →</a>
-        </div>
-      </div>
-
-      <!-- FDA -->
-      <div class="pj fi d3" onmouseenter="this.style.borderColor='rgba(239,68,68,0.35)'" onmouseleave="this.style.borderColor='var(--bdr)'">
-        <div class="pj-d" style="background:var(--red);box-shadow:0 0 12px rgba(239,68,68,0.4);"></div>
-        <h3>FDA Medical Device Recall Intelligence</h3>
-        <p>End-to-end pipeline processing 10M+ FDA recall records across 9,100+ devices. Custom Recall Pattern Severity Score (RPSS) across 5 risk dimensions. ML-based recall prediction + time series forecasting. Top 2% critical devices drive 60%+ of high severity recalls.</p>
-        <div class="pj-tg">
-          <span style="background:rgba(239,68,68,0.08);color:rgba(239,68,68,0.8);border:1px solid rgba(239,68,68,0.15);">Python</span>
-          <span style="background:rgba(239,68,68,0.08);color:rgba(239,68,68,0.8);border:1px solid rgba(239,68,68,0.15);">SQL Server</span>
-          <span style="background:rgba(239,68,68,0.08);color:rgba(239,68,68,0.8);border:1px solid rgba(239,68,68,0.15);">scikit-learn</span>
-          <span style="background:rgba(239,68,68,0.08);color:rgba(239,68,68,0.8);border:1px solid rgba(239,68,68,0.15);">Streamlit</span>
-        </div>
-        <div class="pj-lk">
-          <a href="https://github.com/harshinireddy2204/medical-device-recall-ml" target="_blank" style="color:var(--red);">GitHub →</a>
-          <a href="https://medical-device-recall-ml-xmf38qtvnk2baziwxcpz6g.streamlit.app/" target="_blank" style="color:var(--td);">Live Demo →</a>
-        </div>
-      </div>
-
-      <!-- Tesla Six Sigma -->
-      <div class="pj fi d4" onmouseenter="this.style.borderColor='rgba(245,158,11,0.35)'" onmouseleave="this.style.borderColor='var(--bdr)'">
-        <div class="pj-d" style="background:var(--a);box-shadow:0 0 12px rgba(245,158,11,0.4);"></div>
-        <h3>Tesla Model S Battery Overheating: Six Sigma </h3>
-        <p>Academic Lean Six Sigma project applying the full DMAIC framework to a real-world problem: Tesla Model S batteries overheating during supercharging in extreme heat. Ran a 5-factor DOE analysis (ambient temperature, charging algorithm, cooling system, battery life cycle, safety procedures), identified root causes using fishbone and Pareto analysis, and proposed actionable improvements including supercharging restrictions for older batteries, alternative coolant fluids, and revised safety testing. Targeted a 40% reduction in overheating incidents.</p>
-        <div class="pj-tg">
-          <span style="background:rgba(245,158,11,0.08);color:rgba(245,158,11,0.8);border:1px solid rgba(245,158,11,0.15);">Lean Six Sigma</span>
-          <span style="background:rgba(245,158,11,0.08);color:rgba(245,158,11,0.8);border:1px solid rgba(245,158,11,0.15);">DMAIC</span>
-          <span style="background:rgba(245,158,11,0.08);color:rgba(245,158,11,0.8);border:1px solid rgba(245,158,11,0.15);">DOE</span>
-          <span style="background:rgba(245,158,11,0.08);color:rgba(245,158,11,0.8);border:1px solid rgba(245,158,11,0.15);">Statistical Analysis</span>
-          <span style="background:rgba(245,158,11,0.08);color:rgba(245,158,11,0.8);border:1px solid rgba(245,158,11,0.15);">Process Improvement</span>
-        </div>
-        <div class="pj-lk"></div>
-      </div>
-
-      <!-- Sentiment -->
-      <div class="pj fi d5" onmouseenter="this.style.borderColor='rgba(236,72,153,0.35)'" onmouseleave="this.style.borderColor='var(--bdr)'">
-        <div class="pj-d" style="background:var(--pink);box-shadow:0 0 12px rgba(236,72,153,0.4);"></div>
-        <h3>Student Sentiment Analysis Pipeline</h3>
-        <p>Automated NLP pipeline using VADER to evaluate 10,000+ open-ended student feedback comments. Custom tuned classification thresholds for academic context. Enabled leadership to quantify qualitative feedback and prioritize institutional improvements at scale.</p>
-        <div class="pj-tg">
-          <span style="background:rgba(236,72,153,0.08);color:rgba(236,72,153,0.8);border:1px solid rgba(236,72,153,0.15);">NLP</span>
-          <span style="background:rgba(236,72,153,0.08);color:rgba(236,72,153,0.8);border:1px solid rgba(236,72,153,0.15);">VADER</span>
-          <span style="background:rgba(236,72,153,0.08);color:rgba(236,72,153,0.8);border:1px solid rgba(236,72,153,0.15);">pandas</span>
-          <span style="background:rgba(236,72,153,0.08);color:rgba(236,72,153,0.8);border:1px solid rgba(236,72,153,0.15);">NLTK</span>
-        </div>
-        <div class="pj-lk"></div>
-      </div>
-
-      <!-- Enrollment -->
-      <div class="pj fi d6" onmouseenter="this.style.borderColor='rgba(6,182,212,0.35)'" onmouseleave="this.style.borderColor='var(--bdr)'">
-        <div class="pj-d" style="background:var(--cyan);box-shadow:0 0 12px rgba(6,182,212,0.4);"></div>
-        <h3>Enrollment Analytics Database &amp; Dashboards</h3>
-        <p>Architected a relational database from scratch to structure multi-source enrollment data. Normalized schema with SQL joins creating analytical views with derived columns. Connected to Tableau for interactive dashboards, reducing manual reporting effort by 30%.</p>
-        <div class="pj-tg">
-          <span style="background:rgba(6,182,212,0.08);color:rgba(6,182,212,0.8);border:1px solid rgba(6,182,212,0.15);">Python</span>
-          <span style="background:rgba(6,182,212,0.08);color:rgba(6,182,212,0.8);border:1px solid rgba(6,182,212,0.15);">SQL</span>
-          <span style="background:rgba(6,182,212,0.08);color:rgba(6,182,212,0.8);border:1px solid rgba(6,182,212,0.15);">Tableau</span>
-          <span style="background:rgba(6,182,212,0.08);color:rgba(6,182,212,0.8);border:1px solid rgba(6,182,212,0.15);">Data Modeling</span>
-        </div>
-        <div class="pj-lk"></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="sec" id="education" style="background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);">
-  <div class="sec-in" style="max-width:800px;">
-    <h2 class="sec-t fi">Education</h2>
-    <p class="sec-s fi d1">&nbsp;</p>
-
-    <div class="edu fi d1" style="border-left-color:var(--blue);">
-      <h3>University of Massachusetts Lowell</h3>
-      <p class="deg">M.S. in Industrial / Engineering Management</p>
-      <div class="edu-m">
-        <span>Jan 2024 to Dec 2025</span>
-        <span>Lowell, MA</span>
-        <span class="gpa" style="background:rgba(59,130,246,0.12);color:var(--blue);">GPA: 3.92 / 4.0</span>
-      </div>
-    </div>
-
-    <div class="edu fi d2" style="border-left-color:var(--a);">
-      <h3>JNTU Hyderabad</h3>
-      <p class="deg">B.E. in Electronics &amp; Communication Engineering</p>
-      <div class="edu-m">
-        <span>Jun 2018 to Jul 2022</span>
-        <span>Hyderabad, India</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="sec" id="certifications">
-  <div class="sec-in" style="max-width:800px;">
-    <h2 class="sec-t fi">Certifications</h2>
-    <p class="sec-s fi d1">&nbsp;</p>
-
-    <div class="edu fi d1" style="border-left-color:var(--green);">
-      <h3>Lean Six Sigma Green Belt</h3>
-      <p class="deg">Project Management Institute</p>
-      <div class="edu-m">
-        <span>Issued Jun 2024</span>
-      </div>
-    </div>
-
-    <div class="edu fi d2" style="border-left-color:var(--cyan);">
-      <h3>CSCMP Supply Chain Foundations: The Essentials</h3>
-      <p class="deg">Council of Supply Chain Management Professionals</p>
-      <div class="edu-m">
-        <span>Issued Feb 2025</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="sec cta" id="contact">
-  <div class="sec-in" style="max-width:600px;">
-    <h2 class="sec-t fi">Let's Connect</h2>
-    <p class="fi d1">I'm always up for conversations about data, AI systems, and building things that matter. Currently open to opportunities in AI strategy, forward deployed engineering, and business analytics.</p>
-    <div class="btns fi d2" style="margin-bottom:0;">
-      <a href="mailto:harshini.dommata@gmail.com" class="bp">Email Me</a>
-      <a href="https://github.com/harshinireddy2204" target="_blank" class="bo">GitHub</a>
-      <a href="https://www.linkedin.com/in/harshini-reddy22/" target="_blank" class="bo">LinkedIn</a>
-    </div>
-    <p class="foot fi d3">© 2026 Harshini Reddy</p>
-  </div>
-</section>
+  <footer class="contact" id="contact">
+    <h2>If the ranking looks right, let's talk.</h2>
+    <p class="lede">Open to AI, ML, data and forward deployed roles in the Boston area.</p>
+    <div class="mail"><span id="email">harshini.dommata@gmail.com</span><button id="copy" type="button">Copy email</button></div>
+    <nav aria-label="Profiles">
+      <a href="https://github.com/harshinireddy2204">github.com/harshinireddy2204</a>
+      <a href="https://www.linkedin.com/in/harshini-reddy22/">linkedin.com/in/harshini-reddy22</a>
+    </nav>
+  </footer>
+</div>
 
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+(function () {
+  "use strict";
 
-const hamBtn = document.getElementById('hamBtn');
-const mobMenu = document.getElementById('mobMenu');
-hamBtn.addEventListener('click', () => mobMenu.classList.toggle('open'));
-mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobMenu.classList.remove('open')));
+  /* ---------- 1. Per-startup links ----------
+     Send someone  .../#for-acme  (or ?for=acme on GitHub Pages).
+     Add an entry here to set the display name, an opening query, a note, and a video link. */
+  var TARGETS = {
+    demo: {
+      name: "Demo Startup",
+      query: "agentic AI healthcare",
+      note: "I ran a first query for what I think your team needs. Change it to test me.",
+      video: ""
+    }
+  };
 
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-lk a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) cur = s.id; });
-  navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
-});
+  /* ---------- 2. The corpus: every piece of work is one document ---------- */
+  var ALL = [
+    {
+      id: "healthcare", kind: "Project", when: "Live demo",
+      title: "Healthcare AI Multi-Agent Platform",
+      line: "A clinical operations system where five LangGraph and CrewAI agents automate prior authorization, care gap detection and drug safety checks, with a human review queue for low-confidence cases.",
+      metrics: [["5", "agents"], ["700+", "guideline chunks retrieved over"], ["93", "knowledge graph nodes"], ["8", "REST endpoints"]],
+      bullets: [
+        "Five agents cover three workflows end to end: prior authorization, care gap detection and patient risk triage, with drug safety checks along the way.",
+        "Agent-critic review pattern, plus adaptive routing so simple cases skip the full agent chain and low-confidence cases go to a human review queue.",
+        "Every output grounded in evidence: RAG over 63 clinical guideline sources (700+ chunks) with cross-encoder reranking, a 93-node clinical knowledge graph and live OpenFDA label lookups.",
+        "FHIR R4 to dbt pipelines enforcing 10 validation rules, with SQL analytics for cohort, SLA and care gap reporting.",
+        "Shipped as a FastAPI service with 8 REST endpoints and an 8-tab Streamlit dashboard for live workflows, analytics, human review and SLA tracking."
+      ],
+      stack: ["LangGraph", "CrewAI", "FastAPI", "RAG", "FHIR R4", "dbt", "Streamlit"],
+      links: [["Live demo", "https://healthcare-ai-agents.streamlit.app/"]],
+      keys: "agentic agents multi-agent llm orchestration retrieval reranking healthcare clinical patient medical insurance prior authorization knowledge graph backend api python deployed shipped human-in-the-loop hitl evaluation routing"
+    },
+    {
+      id: "voiceprint", kind: "Project", when: "Live, open source",
+      title: "Voiceprint: Brand Voice Copy Engine",
+      line: "A tool that learns a brand's voice from a few sample paragraphs and writes on-voice copy in 8 languages, transferring the voice instead of translating it.",
+      metrics: [["8", "languages"], ["9", "persuasion strategies"], ["5", "scoring dimensions per variant"], ["$0", "marginal cost to run"]],
+      bullets: [
+        "Two LLM calls per workflow on Gemini 2.0 Flash. The first reads 1 to 5 writing samples and extracts a portable voice profile: tone descriptors, signature phrases, sentence rhythm and words to avoid. The second generates the variants with their strategy labels and scores in one response.",
+        "Covers 7 content types, 8 tones and 8 languages. Each variant is tagged with one of 9 persuasion strategies and scored on clarity, specificity, novelty, brand fit and reading ease.",
+        "Turned user feedback into product: a marketing director said fixed format dropdowns did not match real work, so I built Custom Formats that non-technical users define once and reuse.",
+        "Pydantic validates every model response, pytest runs in CI, and all prompts live in one module so they are easy to iterate on.",
+        "Cost controls built in: token caps per response, a generation limit per session and a bring-your-own-key option, so the deployed tool runs on the free tier at zero marginal cost."
+      ],
+      stack: ["Gemini 2.0 Flash", "Streamlit", "Pydantic", "pytest", "Python"],
+      links: [["Live demo", "https://marketing-content-assistant.streamlit.app/"], ["GitHub", "https://github.com/harshinireddy2204/marketing-content-assistant"]],
+      keys: "llm genai generative product user feedback customer marketing copywriting content generation multilingual evaluation evals scoring prompt cost open source shipped startup"
+    },
+    {
+      id: "fda", kind: "Project", when: "Live, open source",
+      title: "FDA Medical Device Recall Risk Intelligence",
+      line: "An end-to-end pipeline over public FDA data that scores 9,100+ devices for recall risk, flags the 20 highest-risk ones and forecasts 3 to 12 months ahead.",
+      metrics: [["10M+", "recall records"], ["9,100+", "devices scored"], ["top 2%", "of devices drive 60%+ of severe recalls"], ["25%", "better early risk detection"]],
+      bullets: [
+        "Joins five public FDA sources: MAUDE adverse event reports, 510(k) clearances, PMA approvals, recalls and product codes.",
+        "Four stages: Python ETL with PyODBC, normalized SQL Server tables, the scoring engine, then Streamlit dashboards.",
+        "The Recall Pattern Severity Score (RPSS) weighs five dimensions: recall frequency 30%, root cause severity 30%, adverse event exposure 20%, recency 10% and device class 10%.",
+        "A Random Forest model predicts recall likelihood and flags the 20 highest-risk devices; time series forecasts project each risk category 3 to 12 months out.",
+        "Key finding: the top 2% of devices, the Critical tier, account for 60%+ of high-severity recalls."
+      ],
+      stack: ["Python", "SQL Server", "SQLAlchemy", "scikit-learn", "Streamlit"],
+      links: [["Live demo", "https://medical-device-recall-ml-xmf38qtvnk2baziwxcpz6g.streamlit.app/"], ["GitHub", "https://github.com/harshinireddy2204/medical-device-recall-ml"]],
+      keys: "machine learning ml model predictive prediction classification random forest forecasting feature engineering scoring risk medical device healthcare regulatory data pipeline ingestion etl large scale sql dashboard"
+    },
+    {
+      id: "kaggle", kind: "Competition", when: "Silver medal",
+      title: "Kaggle: ROGII Geosteering Challenge",
+      line: "Silver medal, 285th of 6,125 teams. I implemented a published research method from scratch so the model held competing depth hypotheses instead of averaging them.",
+      metrics: [["top 5%", "of 6,125 teams"], ["285th", "final rank"]],
+      bullets: [
+        "Combined offset-well stratigraphy with gamma-ray fingerprint matching to locate the drill bit in the rock sequence.",
+        "Implemented a published research method from scratch so the model carried several competing depth hypotheses forward instead of averaging them into one.",
+        "Trusted my own cross-validation over a noisy public leaderboard, and gained rank when the final reshuffle came."
+      ],
+      stack: ["Python", "Signal matching", "Cross-validation"],
+      links: [],
+      keys: "machine learning ml model modeling competition research paper implementation validation time series signal geoscience energy statistics rigor experiments"
+    },
+    {
+      id: "umass", kind: "Role", when: "Feb 2024 to present",
+      title: "Assistant Business and Data Analyst, UMass Lowell",
+      line: "I sit with the people doing the work, map how it runs today, then build the automation. Three roles in two years, from analytics assistant to co-op to the current one.",
+      metrics: [["30+", "stakeholders in requirements sessions"], ["32%", "fewer data discrepancies"], ["40%", "better forecasting accuracy"], ["15 hrs", "returned per week"]],
+      bullets: [
+        "Built a production framework on LLM APIs with retrieval over enrollment and policy datasets, improving recommendation and forecasting accuracy by 40%.",
+        "Delivered reconciliation logic across Salesforce, CAS, PeopleSoft and Oracle Analytics Cloud by settling which system is authoritative for each field and documenting the rules.",
+        "Cut duplicate admissions records by 30% across 10,000+ applicants, and SQL query runtime by 40% with new relational data models.",
+        "Scored 10,000+ open-ended survey responses with an NLP sentiment pipeline, and built an OAC dashboard tracking 1,000+ eligible students."
+      ],
+      stack: ["Python", "SQL", "LLM APIs", "RAG", "Salesforce", "Dell Boomi", "PeopleSoft", "Oracle Analytics Cloud", "Tableau"],
+      links: [],
+      keys: "stakeholder stakeholders client customer forward deployed requirements interviews process mapping specifications business analyst analytics reporting bi dashboard dashboards data integration cross-system reconciliation automation forecasting enrollment higher education communication nlp sentiment database data modeling retrieval"
+    },
+    {
+      id: "socgen", kind: "Role", when: "Aug 2022 to Dec 2023",
+      title: "Data Analyst, Société Générale, Bengaluru",
+      line: "I owned data integrity for a global investment bank's reporting estate across 50+ SQL Server environments, and helped ship the API that replaced manual extraction.",
+      metrics: [["99.99%", "data integrity"], ["50 hrs", "manual work removed per week"], ["20%", "less system downtime"]],
+      bullets: [
+        "Gathered requirements from report consumers and built the SSIS validation and transformation logic behind them, cutting reporting discrepancies by 25%.",
+        "Partnered with senior engineers to ship a .NET REST API feeding real-time data to BI dashboards, improving refresh performance by 40%.",
+        "Worked autonomously across time zones with Paris-based teams."
+      ],
+      stack: ["SQL Server", "SSIS", ".NET", "REST APIs"],
+      links: [],
+      keys: "banking bank finance fintech enterprise production data engineering engineer etl pipeline pipelines data quality validation sql backend api dotnet reliability infrastructure global team"
+    },
+    {
+      id: "geo", kind: "Project", when: "Live demo",
+      title: "Geopolitical Risk and Portfolio Tail Dashboard",
+      line: "Live news feeds plus 10 years of market data, used to estimate portfolio downside under real crisis scenarios with separate models for calm and crisis markets.",
+      metrics: [["10 yrs", "market data"], ["50,000", "simulated scenarios"], ["2", "market regimes modeled"]],
+      bullets: [
+        "Three public feeds: daily prices from Yahoo Finance, the Geopolitical Risk Index built from newspaper coverage of war and conflict, and live headlines from NewsAPI.",
+        "A GARCH model per asset captures volatility clustering before the dependence between assets is modeled.",
+        "Each day is labeled calm or crisis by whether the risk index sits above its 75th percentile, and a separate Clayton copula is fitted for each regime.",
+        "50,000 scenarios are simulated from the copula matching today's regime, then VaR, CVaR and tail dependence are computed from the simulated portfolio returns.",
+        "Key finding: assets crash together far more often in crisis regimes, visible around Ukraine in 2022 and COVID in 2020, so diversification weakens exactly when it is needed."
+      ],
+      stack: ["Clayton copula", "GARCH", "yfinance", "NewsAPI", "Streamlit", "Python"],
+      links: [["Live demo", "https://geopolitical-portfolio-risk-lawjxduk5cndpicq8egczk.streamlit.app/"], ["GitHub", "https://github.com/harshinireddy2204/geopolitical-portfolio-risk"]],
+      keys: "finance fintech quant quantitative risk modeling statistics statistical simulation monte carlo time series portfolio market trading news dashboard"
+    },
+    {
+      id: "sixsigma", kind: "Project", when: "Academic",
+      title: "Tesla Model S Battery Overheating: Six Sigma Study",
+      line: "A full DMAIC study of battery overheating during supercharging in extreme heat, with a 5-factor design of experiments and a plan targeting 40% fewer incidents.",
+      metrics: [["5", "factors in the DOE"], ["40%", "targeted incident reduction"]],
+      bullets: [
+        "Applied the full DMAIC cycle to a real problem: Model S batteries overheating during supercharging in extreme heat.",
+        "Ran a 5-factor design of experiments: ambient temperature, charging algorithm, cooling system, battery life cycle and safety procedures.",
+        "Identified root causes with fishbone and Pareto analysis.",
+        "Proposed supercharging restrictions for older batteries, alternative coolant fluids and revised safety testing, targeting 40% fewer overheating incidents."
+      ],
+      stack: ["Lean Six Sigma", "DMAIC", "DOE", "Statistical analysis"],
+      links: [],
+      keys: "process improvement operations manufacturing quality experiments experimentation statistics root cause hardware battery automotive ev energy"
+    },
+    {
+      id: "hardware", kind: "Early work", when: "2018 to 2022",
+      title: "The hardware years: IoT and robotics",
+      line: "Before data I built circuits: an RFID coffee dispenser on a Raspberry Pi Pico, a waste and manhole gas monitoring system for city safety, and a fire fighting robot that took runner-up at a 24 hour hackathon.",
+      metrics: [["3", "builds"], ["2nd", "place, 24 hr hackathon"]],
+      bullets: [
+        "Smart coffee dispenser: users scan an RFID card to pick from 4 coffee types. A Raspberry Pi Pico reads the card through an RC522 over SPI, authenticates it and drives relay-controlled dispensing, all in MicroPython.",
+        "Smart waste and manhole monitoring: ultrasonic sensors track bin fill levels in real time, while methane and H2S gas sensors, water level detectors and tilt sensors watch manhole status. GSM and Wi-Fi alerts reach municipal authorities before workers approach a hazardous site.",
+        "Fire fighting robot: autonomous IR fire detection, ultrasonic obstacle avoidance and DC motor drive, built by a team of 4 in a 24 hour hackathon. Won runner-up."
+      ],
+      stack: ["Raspberry Pi", "Arduino", "MicroPython", "C", "Sensors"],
+      links: [],
+      keys: "iot embedded hardware electronics robotics sensors firmware edge devices hackathon prototype physical"
+    }
+  ];
 
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+  var ROLES = ALL.filter(function (d) { return d.kind === "Role"; });
+  var DOCS = ALL.filter(function (d) { return d.kind !== "Role"; });
 
-document.querySelectorAll('.tl li').forEach(li => {
-  const block = li.closest('.tl');
-  if (block) {
-    const color = getComputedStyle(block).borderLeftColor;
-    li.style.setProperty('--c', color);
-    const style = document.createElement('style');
-    style.textContent = '.tl li::before { background: var(--c, rgba(255,255,255,0.3)); }';
-    if (!document.querySelector('#tl-style')) { style.id = 'tl-style'; document.head.appendChild(style); }
+  var SKILLS = [
+    ["AI and automation", "Agentic workflow design, LangGraph, CrewAI, LLM APIs, OpenAI, Gemini, RAG, Prompt engineering, Prompt libraries, MCP, n8n, Multi-step AI pipelines, Evaluation and scoring design, NLP, VADER, NLTK, Sentiment analysis, AI-assisted development"],
+    ["Programming", "Python, pandas, NumPy, scikit-learn, Advanced SQL, REST APIs, FastAPI, .NET, C, MicroPython, Git and GitHub, VS Code"],
+    ["Data engineering and modeling", "Data pipelines, ETL, SSIS, dbt, Data modeling, Large dataset processing, Statistical modeling, Regression analysis, Time series analysis, Predictive modeling"],
+    ["Visualization and BI", "Tableau, Power BI, Streamlit, Plotly, Oracle Analytics Cloud, Excel"],
+    ["Databases and platforms", "SQL Server, Salesforce, Dell Boomi, PeopleSoft, ChromaDB, ServiceNow"],
+    ["Product and business analysis", "Requirements sessions, Stakeholder interviews, Current-state process mapping, Written specifications, Feasibility assessment, Success metrics, Documentation for non-technical users, Business analytics, Product management, Project management, Strategic planning"],
+    ["Process and operations", "Lean Six Sigma, DMAIC, Design of experiments, Business process improvement, Operational optimization, Operations management, Supply chain management, RPA, Building automation systems"],
+    ["Hardware and IoT", "Raspberry Pi, Arduino, RFID, Sensors"]
+  ];
+
+  var CHIPS = ["agentic AI", "LLM products", "RAG", "data pipelines", "ML models", "evals", "healthcare", "risk and finance", "hardware and IoT"];
+
+  /* ---------- 3. Retrieval: BM25 with field weights and a small synonym map ---------- */
+  var STOP = {};
+  "a an the and or of for to in on with at by from is are was be we i you our your my me that this it as who what can do does have has looking hiring hire need needs want someone person people role team work experience experienced strong good".split(" ").forEach(function (w) { STOP[w] = 1; });
+
+  function stem(w) {
+    if (w.length > 4 && /ies$/.test(w)) return w.slice(0, -3) + "y";
+    if (w.length > 5 && /ing$/.test(w)) return w.slice(0, -3);
+    if (w.length > 4 && /ed$/.test(w)) return w.slice(0, -2);
+    if (w.length > 3 && /s$/.test(w) && !/ss$/.test(w)) return w.slice(0, -1);
+    return w;
   }
-});
+  function words(text) { return text.toLowerCase().replace(/[^a-z0-9+.#]+/g, " ").replace(/\.(\s|$)/g, " ").split(" ").filter(Boolean); }
+  function tokens(text) { return words(text).filter(function (w) { return !STOP[w]; }).map(stem); }
+
+  var SYN_RAW = {
+    ai: "agent llm rag", llm: "rag agent", llms: "rag agent", genai: "llm rag agent", agentic: "agent langgraph crewai",
+    agent: "agentic langgraph crewai mcp", ml: "machine learning model predictive", model: "predictive forecasting",
+    fde: "forward deployed stakeholder", deployed: "stakeholder shipped", etl: "pipeline ssis dbt", pipeline: "etl dbt ssis",
+    bi: "dashboard tableau reporting", analytics: "dashboard reporting sql", healthcare: "clinical fhir patient medical",
+    health: "healthcare clinical medical", clinical: "healthcare fhir", finance: "risk portfolio banking", fintech: "finance banking risk",
+    safety: "adversarial evals alignment", evals: "evaluation adversarial", evaluation: "evals adversarial", backend: "api fastapi",
+    api: "fastapi backend", data: "pipeline sql", stakeholder: "client customer", customer: "stakeholder client",
+    search: "retrieval rag", retrieval: "rag reranking", statistics: "statistical modeling", quant: "quantitative copula risk",
+    python: "pandas fastapi", product: "user feedback shipped", kaggle: "competition", startup: "shipped deployed", infrastructure: "pipeline production"
+  };
+  var SYN = {};
+  Object.keys(SYN_RAW).forEach(function (k) { SYN[stem(k)] = SYN_RAW[k].split(" "); });
+
+  var K1 = 1.2, B = 0.75, SYN_WEIGHT = 0.45;
+  var df = {}, total = 0;
+  DOCS.forEach(function (d) {
+    var bag = [].concat(
+      tokens(d.title), tokens(d.title), tokens(d.title),
+      tokens(d.stack.join(" ")), tokens(d.stack.join(" ")),
+      tokens(d.keys), tokens(d.keys),
+      tokens(d.line), tokens(d.bullets.join(" ")), tokens(d.kind)
+    );
+    d.tf = {}; d.len = bag.length; total += bag.length;
+    bag.forEach(function (t) { d.tf[t] = (d.tf[t] || 0) + 1; });
+    Object.keys(d.tf).forEach(function (t) { df[t] = (df[t] || 0) + 1; });
+  });
+  var N = DOCS.length, AVG = total / N, VOCAB = Object.keys(df).length;
+
+  function search(query) {
+    var direct = [], seen = {}, expanded = [];
+    words(query).forEach(function (w) {
+      if (STOP[w]) return;
+      var s = stem(w);
+      if (!seen[s]) { seen[s] = 1; direct.push({ stem: s, show: w, w: 1 }); }
+    });
+    direct.slice().forEach(function (t) {
+      (SYN[t.stem] || []).forEach(function (w) {
+        var s = stem(w);
+        if (!seen[s]) { seen[s] = 1; expanded.push({ stem: s, show: w, w: SYN_WEIGHT, syn: true }); }
+      });
+    });
+    var terms = direct.concat(expanded);
+    var scored = DOCS.map(function (d) {
+      var score = 0, hits = [];
+      terms.forEach(function (t) {
+        var tf = d.tf[t.stem];
+        if (!tf) return;
+        var idf = Math.log(1 + (N - df[t.stem] + 0.5) / (df[t.stem] + 0.5));
+        score += t.w * idf * (tf * (K1 + 1)) / (tf + K1 * (1 - B + B * d.len / AVG));
+        hits.push(t);
+      });
+      return { doc: d, score: score, hits: hits };
+    });
+    scored.sort(function (a, b) { return b.score - a.score || DOCS.indexOf(a.doc) - DOCS.indexOf(b.doc); });
+    return { direct: direct, expanded: expanded, scored: scored };
+  }
+
+  /* ---------- 4. Rendering ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var list = $("list"), input = $("q"), clearBtn = $("clear"), trace = $("trace");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var plain = false;
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  var nodes = {};
+  DOCS.forEach(function (d) {
+    var li = el("li", "doc");
+    var rank = el("div", "rank");
+    var body = el("div", "body");
+    var meta = el("div", "meta");
+    meta.appendChild(el("span", "label", d.kind));
+    meta.appendChild(el("span", "label", d.when));
+    var line = el("p", "line", d.line);
+    body.appendChild(meta);
+    body.appendChild(el("h3", "", d.title));
+    body.appendChild(line);
+    if (d.metrics.length) {
+      var dl = el("dl", "metrics");
+      d.metrics.forEach(function (m) { var w = el("div"); w.appendChild(el("dt", "", m[1])); w.appendChild(el("dd", "", m[0])); dl.appendChild(w); });
+      body.appendChild(dl);
+    }
+    var match = el("div", "match");
+    body.appendChild(match);
+    var det = el("details"); det.appendChild(el("summary", "", "How I built it"));
+    var ul = el("ul", "pts"); d.bullets.forEach(function (b) { ul.appendChild(el("li", "", b)); });
+    det.appendChild(ul); det.appendChild(el("div", "stack", d.stack.join("  ·  ")));
+    body.appendChild(det);
+    if (d.links.length) {
+      var lk = el("div", "links");
+      d.links.forEach(function (l) { var a = el("a", "", l[0] + " ↗"); a.href = l[1]; a.target = "_blank"; a.rel = "noopener"; lk.appendChild(a); });
+      body.appendChild(lk);
+    }
+    var score = el("div", "score");
+    var num = el("span", "num"); var bar = el("span", "bar"); var fill = el("b"); bar.appendChild(fill);
+    score.appendChild(num); score.appendChild(bar); score.appendChild(el("span", "cap", "relevance"));
+    li.appendChild(rank); li.appendChild(body); li.appendChild(score);
+    nodes[d.id] = { li: li, rank: rank, line: line, match: match, num: num, fill: fill };
+  });
+  var sep = el("li", "sep label", "Not matched by this query");
+
+  ROLES.forEach(function (d) {
+    var a = el("article", "role");
+    a.appendChild(el("div", "when label", d.when));
+    var body = el("div", "body");
+    body.appendChild(el("h3", "", d.title));
+    body.appendChild(el("p", "line", d.line));
+    var dl = el("dl", "metrics");
+    d.metrics.forEach(function (m) { var w = el("div"); w.appendChild(el("dt", "", m[1])); w.appendChild(el("dd", "", m[0])); dl.appendChild(w); });
+    body.appendChild(dl);
+    var ul = el("ul", "pts"); d.bullets.forEach(function (b) { ul.appendChild(el("li", "", b)); });
+    body.appendChild(ul);
+    body.appendChild(el("div", "stack", d.stack.join("  ·  ")));
+    a.appendChild(body);
+    $("roles").appendChild(a);
+  });
+
+  function highlight(node, text, stems) {
+    node.textContent = "";
+    text.split(/([A-Za-z0-9+#]+)/).forEach(function (part, i) {
+      if (i % 2 && stems[stem(part.toLowerCase())]) node.appendChild(el("mark", "", part));
+      else node.appendChild(document.createTextNode(part));
+    });
+  }
+
+  function place(order) {
+    var before = new Map();
+    order.forEach(function (n) { if (n.isConnected) before.set(n, n.getBoundingClientRect().top); });
+    Array.prototype.slice.call(list.children).forEach(function (c) { if (order.indexOf(c) < 0) list.removeChild(c); });
+    order.forEach(function (n) { list.appendChild(n); });
+    if (reduce) return;
+    order.forEach(function (n) {
+      if (!before.has(n)) return;
+      var delta = before.get(n) - n.getBoundingClientRect().top;
+      if (!delta) return;
+      n.style.transition = "none";
+      n.style.transform = "translateY(" + delta + "px)";
+      n.getBoundingClientRect();
+      n.style.transition = "transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1)";
+      n.style.transform = "";
+    });
+  }
+
+  function row(dt, dd) { trace.appendChild(el("dt", "", dt)); var d = el("dd"); if (typeof dd === "string") d.textContent = dd; else d.appendChild(dd); trace.appendChild(d); }
+
+  function run() {
+    var query = input.value.trim();
+    clearBtn.hidden = !query;
+    Array.prototype.forEach.call(document.querySelectorAll("#chips button"), function (b) {
+      b.setAttribute("aria-pressed", String(b.textContent.toLowerCase() === query.toLowerCase()));
+    });
+    trace.textContent = "";
+    var order = [];
+
+    if (plain || !query) {
+      list.className = "idle";
+      DOCS.forEach(function (d, i) {
+        var n = nodes[d.id];
+        n.li.className = "doc"; n.rank.textContent = String(i + 1).padStart(2, "0"); n.line.textContent = d.line;
+      });
+      DOCS.forEach(function (d) { order.push(nodes[d.id].li); });
+      $("rtitle").textContent = "Projects and competitions";
+      $("rcount").textContent = N + " items";
+      row("status", "waiting for a query");
+      row("index", N + " documents, " + VOCAB + " terms");
+      row("method", "BM25, k1 " + K1 + ", b " + B);
+      place(order);
+      return;
+    }
+
+    var t0 = performance.now();
+    var res = search(query);
+    var ms = performance.now() - t0;
+    var top = res.scored[0].score || 1, hits = 0, sepPlaced = false;
+    list.className = "";
+    res.scored.forEach(function (r, i) {
+      var n = nodes[r.doc.id], rel = r.score / top;
+      if (r.score > 0) {
+        hits++;
+        n.li.className = "doc hit";
+        n.rank.textContent = String(i + 1).padStart(2, "0");
+        n.num.textContent = r.score.toFixed(2);
+        n.fill.style.width = Math.max(4, rel * 100) + "%";
+        var stems = {}; r.hits.forEach(function (h) { stems[h.stem] = 1; });
+        highlight(n.line, r.doc.line, stems);
+        n.match.textContent = "matched ";
+        r.hits.forEach(function (h) { n.match.appendChild(el("i", h.syn ? "syn" : "", h.show)); });
+      } else {
+        if (!sepPlaced) { order.push(sep); sepPlaced = true; }
+        n.li.className = "doc miss";
+        n.rank.textContent = "";
+        n.num.textContent = "0.00";
+        n.fill.style.width = "0";
+        n.line.textContent = r.doc.line;
+      }
+      order.push(n.li);
+    });
+    $("rtitle").textContent = hits ? "Ranked for “" + query + "”" : "Nothing matched “" + query + "”";
+    $("rcount").textContent = hits + " of " + N + " matched";
+    row("tokens", res.direct.length ? res.direct.map(function (t) { return t.stem; }).join("  ") : "none after stop words");
+    if (res.expanded.length) {
+      var s = el("span", "plus", res.expanded.map(function (t) { return "+" + t.show; }).join(" "));
+      row("expanded", s);
+    }
+    row("index", N + " documents, " + VOCAB + " terms");
+    row("method", "BM25, k1 " + K1 + ", b " + B + ", synonyms at " + SYN_WEIGHT);
+    row("scored in", (ms < 0.1 ? "<0.1" : ms.toFixed(1)) + " ms");
+    place(order);
+  }
+
+  /* ---------- 5. Wiring ---------- */
+  CHIPS.forEach(function (c) {
+    var b = el("button", "", c); b.type = "button"; b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", function () { input.value = (input.value.trim().toLowerCase() === c.toLowerCase()) ? "" : c; run(); });
+    $("chips").appendChild(b);
+  });
+  SKILLS.forEach(function (g) {
+    $("skills").appendChild(el("dt", "label", g[0]));
+    var dd = el("dd");
+    g[1].split(", ").forEach(function (name) {
+      var res = search(name);
+      var backed = res.direct.length > 0 && res.scored.some(function (r) { return r.hits.filter(function (h) { return !h.syn; }).length === res.direct.length; });
+      if (!backed) { dd.appendChild(el("span", "", name)); return; }
+      var b = el("button", "", name); b.type = "button";
+      b.addEventListener("click", function () {
+        if (plain) $("viewToggle").click();
+        input.value = name; run();
+        document.querySelector(".bench").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      });
+      dd.appendChild(b);
+    });
+    $("skills").appendChild(dd);
+  });
+  var timer;
+  input.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 90); });
+  clearBtn.addEventListener("click", function () { input.value = ""; run(); input.focus(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && document.activeElement !== input && !plain) { e.preventDefault(); input.focus(); }
+  });
+  $("viewToggle").addEventListener("click", function () {
+    plain = !plain;
+    $("app").classList.toggle("plain", plain);
+    this.setAttribute("aria-pressed", String(plain));
+    this.textContent = plain ? "Query view" : "Plain view";
+    run();
+  });
+  $("copy").addEventListener("click", function () {
+    var btn = this, addr = $("email").textContent;
+    function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1600); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents($("email")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press copy"; }
+    try { navigator.clipboard.writeText(addr).then(done, fallback); } catch (err) { fallback(); }
+  });
+
+  function target() {
+    var slug = "";
+    var h = (location.hash || "").replace("#", "");
+    if (h.indexOf("for-") === 0) slug = h.slice(4);
+    else { try { slug = new URLSearchParams(location.search).get("for") || ""; } catch (err) {} }
+    slug = slug.toLowerCase().replace(/[^a-z0-9-]/g, "");
+    if (!slug) { $("forBox").hidden = true; return; }
+    var t = TARGETS[slug] || { name: slug.split("-").map(function (p) { return p.charAt(0).toUpperCase() + p.slice(1); }).join(" ") };
+    $("forName").textContent = "Prepared for " + t.name;
+    var note = $("forNote");
+    note.textContent = t.note || "Tell this page what your team needs and it will rank my work against it.";
+    if (t.video) { var a = el("a", "", "Watch the short video I made for you ↗"); a.href = t.video; a.target = "_blank"; a.rel = "noopener"; note.appendChild(document.createTextNode(" ")); note.appendChild(a); }
+    $("forBox").hidden = false;
+    if (t.query) input.value = t.query;
+  }
+  window.addEventListener("hashchange", function () { target(); run(); });
+  target();
+  run();
+})();
 </script>
 </body>
 </html>
